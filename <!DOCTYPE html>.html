@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire - Château d'Oulhaye</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .question-container {
+            margin-bottom: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Questionnaire - Château d'Oulhaye</h1>
+    <div class="question-container">
+        <p><strong>A quel siècle le château d'Oulhaye a-t-il été construit ?</strong></p>
+        <form id="quiz-form">
+            <label>
+                <input type="radio" name="answer" value="A">
+                A) Au 18ème siècle
+            </label><br>
+            <label>
+                <input type="radio" name="answer" value="B">
+                B) Au 17ème siècle
+            </label><br>
+            <label>
+                <input type="radio" name="answer" value="C">
+                C) Au 16ème siècle
+            </label><br>
+            <label>
+                <input type="radio" name="answer" value="D">
+                D) Au 15ème siècle
+            </label><br><br>
+            <button type="button" onclick="checkAnswer()">Valider</button>
+        </form>
+        <p class="result" id="result"></p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const form = document.getElementById('quiz-form');
+            const result = document.getElementById('result');
+            const selected = form.answer.value;
+
+            if (!selected) {
+                result.textContent = "Veuillez sélectionner une réponse.";
+                result.style.color = "red";
+                return;
+            }
+
+            if (selected === "D") {
+                result.textContent = "Bravo ! La bonne réponse est D) Au 15ème siècle.";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Dommage ! Ce n'est pas la bonne réponse. Essayez encore !";
+                result.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
+
